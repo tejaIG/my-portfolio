@@ -1,6 +1,6 @@
 
 ---
-# [Built Portfolio With GitHub ](https://github.com/said7388/github-portfolio)
+# [Built Portfolio With GitHub ](https://github.com/said7388/github-portfolio)  
 
 ---
 
@@ -81,7 +81,7 @@ yarn install
 Then, run the development server:
 
 ```bash
-npm run dev
+npm run dev -- --host
 # or
 yarn dev
 ```
