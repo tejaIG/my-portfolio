@@ -11,6 +11,15 @@ export const skillsData = [
   'n8n',
   'OpenAI',
   'Anthropic',
+  'AutoGPT',
+  'LangGraph',
+  'CrewAI',
+  'Ollama',
+  'Hugging Face',
+  'Agent Frameworks',
+  'Multi-Agent Systems',
+  'Agentic AI',
+  'AGI Research',
   'Git',
   'Bootstrap',
   'Docker',
@@ -24,7 +33,6 @@ export const skillsData = [
   'Pytorch',
   'Tensorflow',
   'Ubuntu',
-  //'Jenkins',
   'Wordpress',
 ]
 

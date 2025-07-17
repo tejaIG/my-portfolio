@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="64" height="64" rx="12" fill="#34495E"/>
+<circle cx="32" cy="20" r="10" fill="#F39C12"/>
+<path d="M32 10L32 30" stroke="#34495E" stroke-width="4"/>
+<path d="M22 20L42 20" stroke="#34495E" stroke-width="4"/>
+<circle cx="16" cy="44" r="6" fill="#3498DB"/>
+<circle cx="32" cy="44" r="6" fill="#E74C3C"/>
+<circle cx="48" cy="44" r="6" fill="#2ECC71"/>
+<path d="M22 44L26 44M38 44L42 44" stroke="#BDC3C7" stroke-width="2"/>
+<text x="32" y="58" text-anchor="middle" fill="white" font-size="5" font-weight="bold">AGI RESEARCH</text>
+</svg>

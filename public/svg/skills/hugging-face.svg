@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="64" height="64" rx="12" fill="#FF7F00"/>
+<path d="M16 16h32v32H16V16z" fill="white"/>
+<path d="M20 20v8h8v-8h-8zm0 12v8h8v-8h-8zm12-12v8h8v-8h-8zm0 12v8h8v-8h-8z" fill="#FF7F00"/>
+<text x="32" y="54" text-anchor="middle" fill="white" font-size="6" font-weight="bold">HUGGING FACE</text>
+</svg>

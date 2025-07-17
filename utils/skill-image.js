@@ -79,6 +79,15 @@ import langchain from '/public/svg/skills/langchain.svg';
 import n8n from '/public/svg/skills/n8n.svg';
 import openai from '/public/svg/skills/openai.svg';
 import anthropic from '/public/svg/skills/anthropic.svg';
+import autogpt from '/public/svg/skills/autogpt.svg';
+import langgraph from '/public/svg/skills/langgraph.svg';
+import crewai from '/public/svg/skills/crewai.svg';
+import ollama from '/public/svg/skills/ollama.svg';
+import huggingface from '/public/svg/skills/hugging-face.svg';
+import agentframeworks from '/public/svg/skills/agent-frameworks.svg';
+import multiagentsystems from '/public/svg/skills/multi-agent-systems.svg';
+import agenticai from '/public/svg/skills/agentic-ai.svg';
+import agiresearch from '/public/svg/skills/agi-research.svg';
 
 
 
@@ -247,6 +256,24 @@ export const skillsImage = (skill) => {
       return openai;
     case 'anthropic':
       return anthropic;
+    case 'autogpt':
+      return autogpt;
+    case 'langgraph':
+      return langgraph;
+    case 'crewai':
+      return crewai;
+    case 'ollama':
+      return ollama;
+    case 'hugging face':
+      return huggingface;
+    case 'agent frameworks':
+      return agentframeworks;
+    case 'multi-agent systems':
+      return multiagentsystems;
+    case 'agentic ai':
+      return agenticai;
+    case 'agi research':
+      return agiresearch;
     default:
       break;
   }
