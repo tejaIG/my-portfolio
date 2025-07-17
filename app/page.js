@@ -11,17 +11,21 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 async function getData() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
+  try {
+    const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
+    
+    if (!res.ok) {
+      console.warn('Failed to fetch dev.to data, using empty array')
+      return [];
+    }
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    const data = await res.json();
+    const filtered = data.filter((item) => item?.cover_image).sort(() => Math.random() - 0.5);
+    return filtered;
+  } catch (error) {
+    console.warn('Error fetching dev.to data:', error.message);
+    return [];
   }
-
-  const data = await res.json();
-
-  const filtered = data.filter((item) => item?.cover_image).sort(() => Math.random() - 0.5);
-
-  return filtered;
 };
 
 export default async function Home() {
