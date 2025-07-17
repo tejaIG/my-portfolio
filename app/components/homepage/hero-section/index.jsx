@@ -116,12 +116,6 @@ function HeroSection() {
                 <span className="text-gray-400">{`['`}</span>
                 <span className="text-amber-300">DevOps</span>
                 <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">ROS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Gazebo</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Rviz</span>
-                <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Linux</span>
                 <span className="text-gray-400">{"', '"}</span>
                 <span className="text-amber-300">Machine Learning</span>

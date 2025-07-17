@@ -24,7 +24,6 @@ import fastify from '/public/svg/skills/fastify.svg';
 import figma from '/public/svg/skills/figma.svg';
 import firebase from '/public/svg/skills/firebase.svg';
 import flutter from '/public/svg/skills/flutter.svg';
-import gazebo from '/public/svg/skills/gazebo.svg';
 import gcp from '/public/svg/skills/gcp.svg';
 import gimp from '/public/svg/skills/gimp.svg';
 import git from '/public/svg/skills/git.svg';
@@ -60,7 +59,6 @@ import premierepro from '/public/svg/skills/premierepro.svg';
 import python from '/public/svg/skills/python.svg';
 import pytorch from '/public/svg/skills/pytorch.svg';
 import react from '/public/svg/skills/react.svg';
-import ros from '/public/svg/skills/ros.svg';
 import ruby from '/public/svg/skills/ruby.svg';
 import selenium from '/public/svg/skills/selenium.svg';
 import sketch from '/public/svg/skills/sketch.svg';
@@ -103,8 +101,6 @@ export const skillsImage = (skill) => {
       return github;
     case 'angular':
       return angular;
-    case 'gazebo' :
-      return gazebo;
     case 'javascript':
       return javascript;
     case 'next js':
@@ -239,8 +235,6 @@ export const skillsImage = (skill) => {
       return wolframalpha;
     case 'canva':
       return canva;
-    case 'ros':
-      return ros;
     default:
       break;
   }
