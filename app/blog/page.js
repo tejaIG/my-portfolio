@@ -1,17 +1,25 @@
 // @flow strict
 
 import { personalData } from "@/utils/data/personal-data";
+import { getLocalBlogs } from "@/utils/data/blogs";
 import BlogCard from "../components/homepage/blog/blog-card";
 
 async function getBlogs() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
+  try {
+    // Try to fetch from dev.to first
+    const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
+    if (res.ok) {
+      const devBlogs = await res.json();
+      // Combine local blogs with dev.to blogs
+      const localBlogs = getLocalBlogs();
+      return [...localBlogs, ...devBlogs];
+    }
+  } catch (error) {
+    console.log('Dev.to API not available, using local blogs only');
   }
-
-  const data = await res.json();
-  return data;
+  
+  // Fallback to local blogs only
+  return getLocalBlogs();
 };
 
 async function page() {

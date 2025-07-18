@@ -6,6 +6,10 @@ import { BsHeartFill } from 'react-icons/bs';
 import { FaCommentAlt } from 'react-icons/fa';
 
 function BlogCard({ blog }) {
+  // Check if this is a local blog (has slug) or external blog (has url)
+  const isLocalBlog = blog.slug && !blog.url;
+  const blogLink = isLocalBlog ? `/blog/${blog.slug}` : blog.url;
+  const linkTarget = isLocalBlog ? '_self' : '_blank';
 
   return (
     <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group"
@@ -15,7 +19,7 @@ function BlogCard({ blog }) {
           src={blog?.cover_image}
           height={1080}
           width={1920}
-          alt=""
+          alt={blog?.title || "Blog image"}
           className='h-full w-full group-hover:scale-110 transition-all duration-300'
         />
       </div>
@@ -35,7 +39,7 @@ function BlogCard({ blog }) {
             }
           </div>
         </div>
-        <Link target='_blank' href={blog.url}>
+        <Link target={linkTarget} href={blogLink}>
           <p className='my-2 lg:my-3 cursor-pointer text-lg text-white sm:text-xl font-medium hover:text-violet-500'>
             {blog.title}
           </p>
@@ -47,7 +51,7 @@ function BlogCard({ blog }) {
           {blog.description}
         </p>
         {/* <div className="">
-          <Link target='_blank' href={blog.url}>
+          <Link target={linkTarget} href={blogLink}>
             <button className='bg-violet-500 text-white px-3 py-1.5 rounded-full text-xs'>
               Read More
             </button>
