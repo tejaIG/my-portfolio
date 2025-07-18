@@ -2,7 +2,7 @@ export const personalData = {
   name: "TEJA TELAGATHOTI",
   profile: '/profile2.png',
   designation: "Software Developer",
-  description: "I'm Teja, a results-oriented engineer with a passion for building intelligent systems. My expertise lies in the intersection of AI, robotics, and DevOps. With a strong foundation in ML, NLP, and ROS, I've successfully developed and deployed complex AI solutions",
+  description: "I'm Teja, a results-oriented engineer with a passion for building intelligent autonomous systems. My expertise lies in the intersection of AI agents, agentic AI, and artificial general intelligence. With a strong foundation in ML, NLP, and AI automation frameworks like n8n, I've successfully developed and deployed complex AI agent solutions that demonstrate autonomous decision-making capabilities",
   email: 'telagathotiteja6522@gmail.com',
   phone: '+917337228636',
   address: '33-136, 4th line, Sanjeev Nagar, Chilakaluripeta, AP, India ',

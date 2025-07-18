@@ -16,6 +16,16 @@ export const projectsData = [
     },
     {
         id: 2,
+        name: 'Intelligent Multi-Agent Automation System',
+        description: 'Developed a sophisticated multi-agent system using n8n that orchestrates autonomous AI agents for complex workflow automation. The system employs agentic AI principles to enable self-governing agents that make intelligent decisions, collaborate, and adapt to changing requirements without human intervention.',
+        tools: ['n8n', 'LangChain', 'OpenAI', 'Anthropic', 'CrewAI', 'AutoGPT', 'Python', 'JavaScript', 'Multi-Agent Systems', 'Agentic AI', 'LangGraph'],
+        role: 'AI Agents Developer',
+        code: 'Python, JavaScript',
+        demo: '',
+        image: crefin,
+    },
+    {
+        id: 3,
         name: 'Jalavishudhakara - Water Hayacinth Remover',
         description: 'I have designed and developed a robot capable of detecting water hyacinth in ponds. The robot utilizes SLAM (Simultaneous Localization and Mapping) for navigation and employs a machine learning model trained with OpenCV for plant identification',
         tools: ['ROS2 Humble', 'URDF', "SLAM", "Esp32", "microROS", "OpenCV", "Linux", 'Git', 'Github', 'Jenkins', 'CI/CD', "Rviz", "Gazebo"],
@@ -25,7 +35,7 @@ export const projectsData = [
         image: travel,
     },
     {
-        id: 3,
+        id: 4,
         name: 'CleanEatz - Ecommerce Webisite',
         description: 'I have designed and developed an e-commerce platform specializing in selling millet-based food products. The platform incorporates robust features for product management, secure payment integration, and an optimized user experience to support seamless transactions.',
         tools: ['Html','CSS', 'Javascript', 'PHP', 'SQL', 'JSON', 'Woocommerce', ],
@@ -35,14 +45,14 @@ export const projectsData = [
         image: realEstate,
     },
     {
-        id: 4,
-        name: 'AI-powered Chatbot for KITS College Website',
-        description: "Me and my team built an AI-powered Chatbot for KITS College Website. I have developed using the Dialogflow, TensorFlow with Python. Built AI assistants using OpenAI's latest model and trained using our dataset. The Chatbot fetches data from User Input and generates the college related information. ",
-        tools: ['TensorFlow', 'DialogFlow', 'Python', 'HTML', 'CSS', 'JS', 'NodeJS', 'Git', 'Github',],
-        role: 'Backend Developer',
+        id: 5,
+        name: 'Agentic AI Chatbot for KITS College',
+        description: "Designed and developed an autonomous AI agent chatbot system for KITS College that demonstrates advanced agentic AI capabilities. The system uses multiple AI agents working collaboratively to understand context, make decisions, and provide intelligent responses while learning from interactions to improve performance over time.",
+        tools: ['TensorFlow', 'DialogFlow', 'OpenAI', 'LangChain', 'n8n', 'Multi-Agent Systems', 'Python', 'HTML', 'CSS', 'JS', 'NodeJS', 'Git', 'Github',],
+        role: 'AI Agents Developer',
         code: '',
         demo: '',
-        image: crefin,
+        image: ayla,
     },
    
 ];
