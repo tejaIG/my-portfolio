@@ -1,4 +1,5 @@
 import { personalData } from "@/utils/data/personal-data";
+import { getLocalBlogs } from "@/utils/data/blogs";
 import AboutSection from "./components/homepage/about";
 import Blog from "./components/homepage/blog";
 import ContactSection from "./components/homepage/contact";
@@ -12,20 +13,21 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 async function getData() {
   try {
+    // Try to fetch from dev.to first
     const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
-    
-    if (!res.ok) {
-      console.warn('Failed to fetch dev.to data, using empty array')
-      return [];
+    if (res.ok) {
+      const devBlogs = await res.json();
+      const filteredDevBlogs = devBlogs.filter((item) => item?.cover_image);
+      // Combine local blogs with dev.to blogs
+      const localBlogs = getLocalBlogs();
+      return [...localBlogs, ...filteredDevBlogs].sort(() => Math.random() - 0.5);
     }
-
-    const data = await res.json();
-    const filtered = data.filter((item) => item?.cover_image).sort(() => Math.random() - 0.5);
-    return filtered;
   } catch (error) {
-    console.warn('Error fetching dev.to data:', error.message);
-    return [];
+    console.log('Dev.to API not available, using local blogs only');
   }
+  
+  // Fallback to local blogs only
+  return getLocalBlogs();
 };
 
 export default async function Home() {
