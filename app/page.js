@@ -12,22 +12,11 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 async function getData() {
-  try {
-    // Try to fetch from dev.to first
-    const res = await fetch(`https://dev.to/api/articles?username=${personalData.devUsername}`)
-    if (res.ok) {
-      const devBlogs = await res.json();
-      const filteredDevBlogs = devBlogs.filter((item) => item?.cover_image);
-      // Combine local blogs with dev.to blogs
-      const localBlogs = getLocalBlogs();
-      return [...localBlogs, ...filteredDevBlogs].sort(() => Math.random() - 0.5);
-    }
-  } catch (error) {
-    console.log('Dev.to API not available, using local blogs only');
-  }
-  
-  // Fallback to local blogs only
-  return getLocalBlogs();
+  // Return only the 3 new AI startup blogs for homepage display
+  const localBlogs = getLocalBlogs();
+  // Filter to get only the 3 new AI startup blogs (IDs 4, 5, 6)
+  const newAIStartupBlogs = localBlogs.filter(blog => [4, 5, 6].includes(blog.id));
+  return newAIStartupBlogs;
 };
 
 export default async function Home() {
