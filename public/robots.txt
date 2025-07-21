@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages if any
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://teja-telagathoti.vercel.app/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

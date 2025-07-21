@@ -9,7 +9,8 @@ import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { generateServiceSchema, generateOrganizationSchema } from "@/utils/schema-generators";
 
 async function getData() {
   // Return only the 3 new AI startup blogs for homepage display
@@ -24,6 +25,20 @@ export default async function Home() {
 
   return (
     <>
+      {/* Additional Schema Markup for Homepage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateServiceSchema())
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateOrganizationSchema())
+        }}
+      />
+      
       <HeroSection />
       <AboutSection />
       <Experience />
