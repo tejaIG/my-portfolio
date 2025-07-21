@@ -82,12 +82,12 @@ function ContactWithCaptcha() {
           Ready to Build Something Amazing?
         </h2>
         <p className="text-lg text-[#16f2b3] mb-2">
-          Let's discuss your AI project and bring your ideas to life
+          Let&apos;s discuss your AI project and bring your ideas to life
         </p>
         <p className="text-[#d3d8e8] mb-6">
           I specialize in AI agents, automation systems, and cutting-edge AI solutions. 
           Whether you need a custom AI application, automation workflow, or AI consultation, 
-          I'm here to help transform your vision into reality.
+          I&apos;m here to help transform your vision into reality.
         </p>
         
         {/* Quick Contact Options */}
@@ -192,7 +192,7 @@ function ContactWithCaptcha() {
                 <option value="$5,000 - $10,000">$5,000 - $10,000</option>
                 <option value="$10,000 - $25,000">$10,000 - $25,000</option>
                 <option value="$25,000+">$25,000+</option>
-                <option value="Let's discuss">Let's discuss</option>
+                <option value="Let&apos;s discuss">Let&apos;s discuss</option>
               </select>
             </div>
           </div>

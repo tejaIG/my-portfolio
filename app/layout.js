@@ -1,5 +1,5 @@
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
@@ -9,7 +9,9 @@ import "./css/globals.scss";
 import ScrollToTop from "./components/helper/scroll-to-top";
 import { generateStructuredData } from "@/utils/seo-data";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+// Use system fonts as fallback during build issues
+const inter = { className: 'font-sans' };
 
 export const metadata = {
   metadataBase: new URL('https://teja-telagathoti.vercel.app'),
