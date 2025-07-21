@@ -6,6 +6,7 @@ import Image from "next/image";
 import { BsHeartFill } from 'react-icons/bs';
 import { FaCommentAlt } from 'react-icons/fa';
 import { notFound } from 'next/navigation';
+import { generateBlogSchema } from "@/utils/schema-generators";
 
 export async function generateMetadata({ params }) {
   const slug = params.slug;
@@ -130,6 +131,14 @@ async function BlogDetails({params}) {
 
   return (
     <div className="py-8">
+      {/* Blog Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBlogSchema(blog))
+        }}
+      />
+      
       {/* Hero Section */}
       <div className="mb-8">
         <div className="h-64 lg:h-80 w-full overflow-hidden rounded-lg mb-6">
