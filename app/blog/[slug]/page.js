@@ -7,6 +7,64 @@ import { BsHeartFill } from 'react-icons/bs';
 import { FaCommentAlt } from 'react-icons/fa';
 import { notFound } from 'next/navigation';
 
+export async function generateMetadata({ params }) {
+  const slug = params.slug;
+  const blog = await getBlog(slug);
+  
+  if (!blog) {
+    return {
+      title: 'Blog Not Found - Teja Telagathoti',
+      description: 'The requested blog post could not be found.',
+    };
+  }
+
+  return {
+    title: `${blog.title} | Teja Telagathoti Blog`,
+    description: blog.description,
+    keywords: blog.tags ? blog.tags.join(', ') : 'AI, Machine Learning, Technology, Programming',
+    authors: [{ name: "Teja Telagathoti", url: "https://www.linkedin.com/in/teja-ig/" }],
+    creator: "Teja Telagathoti",
+    publisher: "Teja Telagathoti",
+    openGraph: {
+      type: 'article',
+      locale: 'en_US',
+      url: `https://teja-telagathoti.vercel.app/blog/${slug}`,
+      siteName: 'Teja Telagathoti Portfolio',
+      title: blog.title,
+      description: blog.description,
+      images: [
+        {
+          url: blog.cover_image,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+      publishedTime: blog.published_at,
+      authors: ['Teja Telagathoti'],
+      tags: blog.tags,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@ig_teja',
+      creator: '@ig_teja',
+      title: blog.title,
+      description: blog.description,
+      images: [blog.cover_image],
+    },
+    alternates: {
+      canonical: `https://teja-telagathoti.vercel.app/blog/${slug}`,
+    },
+    other: {
+      'article:author': 'Teja Telagathoti',
+      'article:published_time': blog.published_at,
+      'article:modified_time': blog.published_at,
+      'article:section': 'Technology',
+      'article:tag': blog.tags ? blog.tags.join(', ') : 'AI, Technology',
+    },
+  };
+}
+
 async function getBlog(slug) {
   // First check if it's a local blog
   const localBlog = getBlogBySlug(slug);

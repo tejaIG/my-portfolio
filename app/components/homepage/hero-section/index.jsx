@@ -30,6 +30,30 @@ function HeroSection() {
             <span className=" text-[#16f2b3]">{personalData.designation}</span>
             .
           </h1>
+          
+          {/* Enhanced value proposition */}
+          <p className="my-4 text-lg text-gray-300 leading-relaxed">
+            Specializing in <strong className="text-[#16f2b3]">AI Agents</strong>, 
+            <strong className="text-[#16f2b3]"> Agentic AI</strong>, and 
+            <strong className="text-[#16f2b3]"> Autonomous Systems</strong>.
+            I help businesses build intelligent automation solutions that drive results.
+          </p>
+          
+          {/* Trust indicators */}
+          <div className="mb-8 flex flex-wrap items-center gap-4 text-sm text-gray-400">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span>Available for hire</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span>24h response time</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
+              <span>AI Expert</span>
+            </div>
+          </div>
 
           <div className="my-12 flex items-center gap-5">
             <Link
