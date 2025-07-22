@@ -43,7 +43,7 @@ const ChatBot = ({ isOpen, onClose }) => {
         }, 1000);
       }, 500);
     }
-  }, [isOpen]);
+  }, [isOpen, messages.length]);
 
   const addBotMessage = (message) => {
     setIsTyping(true);
@@ -232,7 +232,7 @@ const ChatBot = ({ isOpen, onClose }) => {
           <div className="flex items-center gap-3">
             <FaRobot className="text-black text-xl" />
             <div>
-              <h3 className="text-black font-semibold">Teja's Assistant</h3>
+              <h3 className="text-black font-semibold">Teja&apos;s Assistant</h3>
               <p className="text-black text-xs opacity-80">Usually online</p>
             </div>
           </div>
