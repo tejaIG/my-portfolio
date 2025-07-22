@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { TbMailForward } from "react-icons/tb";
 import { toast } from 'react-toastify';
+import emailjs from '@emailjs/browser';
 
 function ContactWithoutCaptcha() {
   const [error, setError] = useState({ email: false, required: false });

@@ -92,19 +92,49 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # Usage :joystick:
 
-Goto [emailjs.com](https://www.emailjs.com/) and create a new account for the mail sending. In free trial you will get 200 mail per month. After setup `emailjs` account, Please create a new `.env` file from `.env.example` file.
+## 📧 EmailJS & Contact Setup
 
-Eg:
+This portfolio includes both a traditional contact form and an interactive AI chatbot for collecting user inquiries. Both features require EmailJS configuration.
+
+**For detailed setup instructions, see: [EMAILJS_SETUP.md](./EMAILJS_SETUP.md)**
+
+### Quick Setup
+
+1. Create account at [emailjs.com](https://www.emailjs.com/) (200 emails/month in free tier)
+2. Set up email service and template (see detailed guide)
+3. Create `.env` file from `.env.example`:
 
 ```env
-NEXT_PUBLIC_EMAILJS_SERVICE_ID =
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID =
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY =
-NEXT_PUBLIC_GTM = # For site analytics
-NEXT_PUBLIC_APP_URL = "http://127.0.0.1:3000"
-NEXT_PUBLIC_RECAPTCHA_SECRET_KEY = # For captcha verification on contact form
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY =
+# Required: EmailJS Configuration
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_xxxxxxxxx
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_xxxxxxxxx
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxx
+
+# Required: App Configuration  
+NEXT_PUBLIC_APP_URL="http://127.0.0.1:3000"
+
+# Optional: Site Analytics
+NEXT_PUBLIC_GTM=
+
+# Optional: Contact Form Captcha
+NEXT_PUBLIC_RECAPTCHA_SECRET_KEY=
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=
+
+# Optional: Telegram Notifications
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_CHAT_ID=
 ```
+
+### Features Available
+
+- **📝 Contact Form**: Traditional form in the contact section
+- **🤖 AI Chatbot**: Interactive chatbot with step-by-step data collection
+  - Collects name, email, project type, budget, and details
+  - Humorous conversation flow
+  - Validates email addresses
+  - Sends structured notifications
+
+Both features send formatted messages to your email and optionally to Telegram.
 
 ### Then, Customize data in the `utils/data` [folder](https://github.com/said7388/developer-portfolio/tree/main/utils/data).
 
