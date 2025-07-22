@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa6";
+import ChatBot from "../chatbot/ChatBot";
+import ChatBotToggle from "../chatbot/ChatBotToggle";
 
 const DEFAULT_BTN_CLS =
   "fixed bottom-8 right-6 z-50 flex items-center rounded-full bg-gradient-to-r from-pink-500 to-violet-600 p-4 hover:text-xl transition-all duration-300 ease-out";
@@ -9,6 +11,7 @@ const SCROLL_THRESHOLD = 50;
 
 const ScrollToTop = () => {
   const [btnCls, setBtnCls] = useState(DEFAULT_BTN_CLS);
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,10 +29,27 @@ const ScrollToTop = () => {
 
   const onClickBtn = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
+  const closeChat = () => {
+    setIsChatOpen(false);
+  };
+
   return (
-    <button className={btnCls} onClick={onClickBtn}>
-      <FaArrowUp />
-    </button>
+    <>
+      {/* Scroll to top button */}
+      <button className={btnCls} onClick={onClickBtn}>
+        <FaArrowUp />
+      </button>
+      
+      {/* ChatBot Toggle */}
+      <ChatBotToggle onClick={toggleChat} isOpen={isChatOpen} />
+      
+      {/* ChatBot Modal */}
+      <ChatBot isOpen={isChatOpen} onClose={closeChat} />
+    </>
   );
 };
 
