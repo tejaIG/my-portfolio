@@ -94,24 +94,33 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 📧 EmailJS & Contact Setup
 
-This portfolio includes both a traditional contact form and an interactive AI chatbot for collecting user inquiries. Both features require EmailJS configuration.
+This portfolio includes both a traditional contact form and an interactive AI chatbot for collecting user inquiries. Both features use EmailJS for email delivery.
 
 **For detailed setup instructions, see: [EMAILJS_SETUP.md](./EMAILJS_SETUP.md)**
 
-### Quick Setup
+### 🚨 IMPORTANT: Fix for "undefined/api/contact" Error
 
-1. Create account at [emailjs.com](https://www.emailjs.com/) (200 emails/month in free tier)
-2. Set up email service and template (see detailed guide)
-3. Create `.env` file from `.env.example`:
+If you're getting a **405 Method Not Allowed** error with URL containing "undefined", you have two options:
+
+#### Option 1: Pure EmailJS (Recommended - No Server Required)
+Just use EmailJS directly from the client. **No need for `/api/contact` route**.
+
+#### Option 2: Hybrid Approach (Current Implementation)
+EmailJS + custom API route for additional features (Telegram notifications, logging).
+
+### ⚙️ Environment Variables Setup
+
+**Create `.env.local` file** (not `.env`) in your project root:
 
 ```env
 # Required: EmailJS Configuration
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_xxxxxxxxx
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_xxxxxxxxx
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_xxxxxxxxx  
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxx
 
-# Required: App Configuration  
-NEXT_PUBLIC_APP_URL="http://127.0.0.1:3000"
+# Required for Hybrid Approach: Set your actual domain
+NEXT_PUBLIC_APP_URL=https://your-domain.com
+# For local development: NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 # Optional: Site Analytics
 NEXT_PUBLIC_GTM=
@@ -120,21 +129,104 @@ NEXT_PUBLIC_GTM=
 NEXT_PUBLIC_RECAPTCHA_SECRET_KEY=
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=
 
-# Optional: Telegram Notifications
-TELEGRAM_BOT_TOKEN=
-TELEGRAM_CHAT_ID=
+# Optional: Telegram Bot (for hybrid approach)
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+TELEGRAM_CHAT_ID=your_telegram_chat_id
 ```
 
-### Features Available
+### 🔧 Deployment Configuration
+
+**For Vercel:**
+1. Go to Project Settings → Environment Variables
+2. Add all `NEXT_PUBLIC_*` variables
+3. Set `NEXT_PUBLIC_APP_URL` to your actual domain: `https://your-domain.vercel.app`
+
+**For other platforms:**
+- Ensure all environment variables are set in your hosting platform
+- `NEXT_PUBLIC_APP_URL` must match your deployed domain
+
+### 🎯 How It Works
+
+#### EmailJS Flow (Client-Side)
+```javascript
+// Direct EmailJS call - no server needed
+await emailjs.send(serviceID, templateID, templateParams, options);
+```
+
+#### Hybrid Flow (Current Implementation)  
+```javascript
+// 1. Send via EmailJS (client-side)
+await emailjs.send(serviceID, templateID, templateParams, options);
+
+// 2. Send to custom API for Telegram notifications
+await axios.post(`${NEXT_PUBLIC_APP_URL}/api/contact`, userInfo);
+```
+
+### ✨ Features Available
 
 - **📝 Contact Form**: Traditional form in the contact section
 - **🤖 AI Chatbot**: Interactive chatbot with step-by-step data collection
-  - Collects name, email, project type, budget, and details
+  - Collects name, email, project type, budget, and details  
   - Humorous conversation flow
   - Validates email addresses
   - Sends structured notifications
 
 Both features send formatted messages to your email and optionally to Telegram.
+
+### 🐛 Troubleshooting Common Issues
+
+#### Issue: "405 Method Not Allowed" with "undefined/api/contact"
+**Problem:** `NEXT_PUBLIC_APP_URL` environment variable is missing or not set correctly.
+
+**Solutions:**
+1. **Option A - Pure EmailJS (Remove API dependency):**
+   ```javascript
+   // Remove this line from your components:
+   await axios.post(`${appUrl}/api/contact`, userInfo);
+   
+   // Keep only:
+   await emailjs.send(serviceID, templateID, templateParams, options);
+   ```
+
+2. **Option B - Fix Environment Variable:**
+   ```bash
+   # In .env.local file:
+   NEXT_PUBLIC_APP_URL=https://your-actual-domain.com
+   ```
+
+#### Issue: EmailJS not sending emails
+**Check these items:**
+- ✅ Environment variables are set in `.env.local` 
+- ✅ EmailJS service is connected and working
+- ✅ Template ID exists and is published
+- ✅ Public key is correct
+- ✅ Browser console shows no CORS errors
+
+#### Issue: Build failing on Vercel/Netlify
+**Common fixes:**
+- Set all environment variables in hosting platform settings
+- Use `NEXT_PUBLIC_APP_URL=https://your-domain.vercel.app` (your actual domain)
+- Verify template variables match your EmailJS template
+
+#### Issue: Form submits but no email received  
+**Debug steps:**
+1. Check EmailJS dashboard for sent emails count
+2. Verify email service is properly connected
+3. Check spam/junk folder
+4. Test EmailJS template directly in dashboard
+
+### 🧪 Testing Your Setup
+
+1. **Local Testing:**
+   ```bash
+   npm run dev
+   # Test both contact form and chatbot
+   ```
+
+2. **Production Testing:**
+   - Deploy with correct environment variables
+   - Test on actual domain
+   - Check browser console for errors
 
 ### Then, Customize data in the `utils/data` [folder](https://github.com/said7388/developer-portfolio/tree/main/utils/data).
 
