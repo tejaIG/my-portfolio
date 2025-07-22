@@ -74,6 +74,48 @@ function Experience() {
             </div>
           </div>
         </div>
+        
+        {/* Industry Resources Section */}
+        <div className="mt-12 pt-8 border-t border-[#25213b]">
+          <div className="text-center mb-6">
+            <h3 className="text-lg text-white mb-3">Industry Resources & Research</h3>
+            <p className="text-gray-300 text-sm max-w-2xl mx-auto">
+              Stay updated with the latest in AI research and industry developments
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <a 
+              href="https://anthropic.com/research" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300"
+            >
+              <span className="text-[#16f2b3] text-sm font-medium mb-1">Anthropic Research</span>
+              <span className="text-gray-400 text-xs text-center">AI Safety & Constitutional AI</span>
+            </a>
+            
+            <a 
+              href="https://arxiv.org/list/cs.AI/recent" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300"
+            >
+              <span className="text-[#16f2b3] text-sm font-medium mb-1">arXiv AI Papers</span>
+              <span className="text-gray-400 text-xs text-center">Latest AI Research Publications</span>
+            </a>
+            
+            <a 
+              href="https://huggingface.co/blog" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300"
+            >
+              <span className="text-[#16f2b3] text-sm font-medium mb-1">Hugging Face Blog</span>
+              <span className="text-gray-400 text-xs text-center">ML Engineering & Models</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

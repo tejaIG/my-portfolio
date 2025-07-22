@@ -44,6 +44,58 @@ function Blog({ blogs }) {
           <FaArrowRight size={16} />
         </Link>
       </div>
+      
+      {/* AI Industry Publications Section */}
+      <div className="mt-12 pt-8 border-t border-[#25213b]">
+        <div className="text-center mb-6">
+          <h3 className="text-lg text-white mb-3">Recommended AI Reading</h3>
+          <p className="text-gray-300 text-sm max-w-2xl mx-auto">
+            Explore leading AI publications and thought leadership content
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <a 
+            href="https://towardsdatascience.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium mb-1">Towards Data Science</span>
+            <span className="text-gray-400 text-xs text-center">ML & AI Articles</span>
+          </a>
+          
+          <a 
+            href="https://openai.com/blog/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium mb-1">OpenAI Blog</span>
+            <span className="text-gray-400 text-xs text-center">AI Research Updates</span>
+          </a>
+          
+          <a 
+            href="https://distill.pub/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium mb-1">Distill</span>
+            <span className="text-gray-400 text-xs text-center">ML Explanations</span>
+          </a>
+          
+          <a 
+            href="https://ai.googleblog.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium mb-1">Google AI Blog</span>
+            <span className="text-gray-400 text-xs text-center">AI Innovations</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

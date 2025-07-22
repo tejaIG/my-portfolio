@@ -17,7 +17,7 @@ export const metadata = {
   metadataBase: new URL('https://teja-telagathoti.vercel.app'),
   title: "Teja Telagathoti - AI Agents & Software Developer | Portfolio",
   description:
-    "Teja Telagathoti is a results-oriented AI engineer specializing in autonomous systems, AI agents, and agentic AI. Expert in LangChain, CrewAI, n8n automation, and multi-agent systems. Available for hire.",
+    "Hire Teja Telagathoti - Expert AI engineer specializing in autonomous systems, AI agents, and agentic AI. Proven expertise in LangChain, CrewAI, n8n automation, and multi-agent systems. Drive your AI transformation with cutting-edge solutions. Available for immediate consultation.",
   keywords: "AI agents, agentic AI, software developer, LangChain, CrewAI, n8n automation, multi-agent systems, machine learning engineer, artificial intelligence, autonomous systems, AI automation, Python developer, AGI research",
   authors: [{ name: "Teja Telagathoti", url: "https://www.linkedin.com/in/teja-ig/" }],
   creator: "Teja Telagathoti",

@@ -64,6 +64,60 @@ function Skills() {
           ))}
         </Marquee>
       </div>
+
+      {/* AI Technology Resources Section */}
+      <div className="mt-12 mb-8">
+        <div className="flex justify-center mb-8">
+          <div className="text-center">
+            <h3 className="text-lg text-white mb-4">Explore Leading AI Technologies</h3>
+            <p className="text-gray-300 text-sm max-w-2xl mx-auto mb-6">
+              Learn more about the cutting-edge AI frameworks and platforms I work with daily
+            </p>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <a 
+            href="https://python.langchain.com/docs/introduction/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300 hover:scale-105"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium">LangChain</span>
+            <span className="text-gray-400 text-xs mt-1">Framework Docs</span>
+          </a>
+          
+          <a 
+            href="https://docs.crewai.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300 hover:scale-105"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium">CrewAI</span>
+            <span className="text-gray-400 text-xs mt-1">Multi-Agent</span>
+          </a>
+          
+          <a 
+            href="https://docs.n8n.io/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300 hover:scale-105"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium">n8n</span>
+            <span className="text-gray-400 text-xs mt-1">Automation</span>
+          </a>
+          
+          <a 
+            href="https://platform.openai.com/docs" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-4 rounded-lg border border-[#1f223c] bg-[#11152c] hover:border-violet-500 transition-all duration-300 hover:scale-105"
+          >
+            <span className="text-[#16f2b3] text-sm font-medium">OpenAI</span>
+            <span className="text-gray-400 text-xs mt-1">API Docs</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

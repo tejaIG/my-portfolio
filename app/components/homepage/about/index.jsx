@@ -21,6 +21,40 @@ function AboutSection() {
           <p className="text-gray-200 text-sm lg:text-lg">
             {personalData.description}
           </p>
+          
+          {/* Enhanced with external resources */}
+          <div className="mt-6 space-y-4">
+            <p className="text-gray-300 text-sm lg:text-base">
+              My work focuses on the intersection of{" "}
+              <a 
+                href="https://blog.langchain.dev/what-is-agentic-ai/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#16f2b3] hover:text-pink-500 transition-colors underline"
+              >
+                agentic AI research
+              </a>{" "}
+              and practical automation solutions. I&apos;m particularly interested in{" "}
+              <a 
+                href="https://openai.com/research/gpt-4" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#16f2b3] hover:text-pink-500 transition-colors underline"
+              >
+                large language model applications
+              </a>{" "}
+              and{" "}
+              <a 
+                href="https://arxiv.org/abs/2308.11432" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#16f2b3] hover:text-pink-500 transition-colors underline"
+              >
+                multi-agent systems research
+              </a>{" "}
+              that can drive real-world impact.
+            </p>
+          </div>
         </div>
         <div className="flex justify-center order-1 lg:order-2">
           <Image
