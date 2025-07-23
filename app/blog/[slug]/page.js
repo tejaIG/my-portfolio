@@ -1,12 +1,15 @@
 // @flow strict
 import { personalData } from "@/utils/data/personal-data";
-import { getBlogBySlug } from "@/utils/data/blogs";
+import { getBlogBySlug, getLocalBlogs } from "@/utils/data/blogs";
 import { timeConverter } from "@/utils/time-converter";
 import Image from "next/image";
 import { BsHeartFill } from 'react-icons/bs';
 import { FaCommentAlt } from 'react-icons/fa';
 import { notFound } from 'next/navigation';
 import { generateBlogSchema } from "@/utils/schema-generators";
+import BlogCTA from "../../components/blog/blog-cta";
+import BlogCard from "../../components/homepage/blog/blog-card";
+import { getRelatedServices, getRelatedBlogs } from "@/utils/blog-service-mapper";
 
 export async function generateMetadata({ params }) {
   const slug = params.slug;
@@ -93,6 +96,11 @@ async function BlogDetails({params}) {
   if (!blog) {
     notFound();
   }
+
+  // Get related services and blogs
+  const relatedServices = getRelatedServices(slug);
+  const allBlogs = getLocalBlogs();
+  const relatedBlogs = getRelatedBlogs(slug, allBlogs);
 
   // Format content for local blogs (convert markdown-style content to HTML-like)
   const formatContent = (content) => {
@@ -190,6 +198,27 @@ async function BlogDetails({params}) {
           <p className="text-[#d3d8e8]">Content not available.</p>
         )}
       </div>
+
+      {/* Call to Action Section */}
+      <BlogCTA blogTitle={blog.title} relatedServices={relatedServices} />
+
+      {/* Related Blogs Section */}
+      {relatedBlogs.length > 0 && (
+        <div className="mt-12">
+          <div className="flex items-center mb-6">
+            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+            <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md mx-4">
+              Related Articles
+            </span>
+            <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {relatedBlogs.map((relatedBlog, index) => (
+              <BlogCard key={index} blog={relatedBlog} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Tags */}
       {blog.tags && blog.tags.length > 0 && (

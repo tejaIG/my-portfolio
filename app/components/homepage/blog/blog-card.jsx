@@ -50,13 +50,19 @@ function BlogCard({ blog }) {
         <p className='text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3'>
           {blog.description}
         </p>
-        {/* <div className="">
+        <div className="flex justify-between items-center">
           <Link target={linkTarget} href={blogLink}>
-            <button className='bg-violet-500 text-white px-3 py-1.5 rounded-full text-xs'>
+            <button className='bg-violet-500 hover:bg-violet-600 text-white px-4 py-2 rounded-lg text-sm transition-colors duration-300 flex items-center gap-2'>
               Read More
+              <span>→</span>
             </button>
           </Link>
-        </div> */}
+          <Link href="/contact">
+            <button className='border border-[#16f2b3] text-[#16f2b3] hover:bg-[#16f2b3] hover:text-[#0d1224] px-3 py-2 rounded-lg text-xs transition-all duration-300'>
+              Discuss Project
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
